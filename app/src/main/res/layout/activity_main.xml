@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="32dp">
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/lay_lock_main"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_gray_bg"
+            android:elevation="8dp"
+            app:layoutDescription="@xml/swipe_unlock_scene">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="0.1dp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_lock"
+                app:layout_constraintStart_toEndOf="@+id/iv_lock"
+                app:layout_constraintTop_toTopOf="@+id/iv_lock"
+                app:shimmer_base_alpha="1"
+                app:shimmer_base_color="@color/gray"
+                app:shimmer_colored="true"
+                app:shimmer_duration="2500"
+                app:shimmer_fixed_width="250dp"
+                app:shimmer_highlight_alpha="1"
+                app:shimmer_width_ratio="1"
+                app:shimmer_highlight_color="@color/magenta">
+
+                <TextView
+                    android:id="@+id/tv_lable_with_shimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:paddingEnd="16dp"
+                    android:paddingRight="16dp"
+                    android:text="Получать бонусы"
+                    android:textSize="20sp" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <TextView
+                android:id="@+id/tv_lable_without_shimmer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="0.1dp"
+                android:ellipsize="end"
+                android:paddingEnd="16dp"
+                android:paddingRight="16dp"
+                android:text="Получать бонусы"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@id/iv_lock"
+                app:layout_constraintStart_toEndOf="@+id/iv_lock"
+                app:layout_constraintTop_toTopOf="@+id/iv_lock" />
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/iv_lock"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="6dp"
+                android:elevation="0.1dp"
+                android:src="@drawable/ic_unlock_pink"
+                app:altSrc="@drawable/ic_unlock_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_follow"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="6dp"
+                android:alpha="1"
+                android:background="@drawable/slider_swipe_gradient"
+                app:layout_constraintBottom_toBottomOf="@id/iv_lock"
+                app:layout_constraintEnd_toStartOf="@id/iv_lock"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/iv_lock"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_unlocked_background"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:alpha="1"
+                android:background="@drawable/slider_swiped_gradient"
+                app:layout_constraintEnd_toStartOf="@id/iv_lock"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
